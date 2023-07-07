@@ -1,6 +1,6 @@
 import { createContext, useState, useMemo } from "react";
 import { createTheme } from "@mui/material/styles";
-import { co } from "@fullcalendar/core/internal-common";
+
 
 // color design tokens export
 export const tokens = (mode) => ({
@@ -206,6 +206,11 @@ export const useMode = () => {
     () => ({
       toggleColorMode: () =>
       setMode ((prev) => (prev === "light" ? "dark" : "light"))
-    })
-  )
+    }),
+    []
+  );
+
+  const theme = useMemo(() => createTheme(themeSettings(mode)), [mode]);
+
+  return [theme, colorMode];
 }
