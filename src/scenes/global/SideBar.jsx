@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { ProSidebar, Menu, MenuItem } from "react-pro-sidebar";
-import 'react-pro-sidebar/dist/css/stles.css';
+import "react-pro-sidebar/dist/css/styles.css";
 import { Box, IconButton, Typography, useTheme } from '@mui/material';
 import { Link } from "react-router-dom";
 import { tokens } from "../../theme";
@@ -9,7 +9,7 @@ import PeopleOutlinedIcon from "@mui/icons-material/PeopleOutlined";
 import ContactsOutlinedIcon from "@mui/icons-material/ContactsOutlined";
 import ReceiptOutlinedIcon from "@mui/icons-material/ReceiptOutlined";
 import PersonOutlinedIcon from "@mui/icons-material/PersonOutlined";
-import CalendarOutlinedIcon from "@mui/icons-material/CalendarOutlined";
+import CalendarTodayOutlinedIcon from "@mui/icons-material/CalendarTodayOutlined";
 import HelpOutlinedIcon from "@mui/icons-material/HelpOutlined";
 import BarChartOutlinedIcon from "@mui/icons-material/BarChartOutlined";
 import PieChartOutlineOutlinedIcon from "@mui/icons-material/PieChartOutlineOutlined";
@@ -58,11 +58,16 @@ const SideBar = () => {
                         }}
                     >
                         {!isCollapsed && (
-                            <Box>
-                                <Typography>
+                            <Box 
+                              display="flex" 
+                              justifyContent= "space-between" 
+                              alignItems="center" 
+                              ml="15px"
+                            >
+                              <Typography variant="h3" color={colors.grey[100]}>
                                   Head Of The Table  
                                 </Typography>
-                                <IconButton>
+                                <IconButton onClick={() => setIsCollapsed(!isCollapsed)}>
                                     <MenuOutlinedIcon />
                                 </IconButton>
                             </Box>

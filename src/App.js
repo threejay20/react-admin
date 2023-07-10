@@ -3,7 +3,8 @@ import { CssBaseline, ThemeProvider } from '@mui/material';
 import Topbar from './scenes/global/Topbar';
 import { Route, Routes } from 'react-router-dom';
 import Dashboard from "./scenes/dashboard";
-import SideBar from "./scenes/global/SideBar";
+import Sidebar from './scenes/global/SideBar';
+import { useState } from 'react';
 // import Team from "./scenes/team";
 // import Invoices from "./scenes/invoices";
 // import Contacts from "./scenes/contacts";
@@ -18,12 +19,14 @@ import SideBar from "./scenes/global/SideBar";
 
 function App() {
   const [theme, colorMode] = useMode();
+  const [isSidebar, setIsSidebar] = useState(true);
 
   return (
     <ColorModeContext.Provider value={colorMode}>
       <ThemeProvider theme={theme}>
         <CssBaseline />
       <div className="app">
+        <Sidebar isSidebar={isSidebar} />
         <main className="content">
           <Topbar />
           <Routes>
